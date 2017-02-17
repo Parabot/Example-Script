@@ -7,4 +7,6 @@ import org.parabot.script.data.Settings;
  */
 public interface ICore {
     Settings getSettings();
+
+    void sendNotification(String message);
 }

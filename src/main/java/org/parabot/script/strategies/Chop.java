@@ -21,6 +21,6 @@ public class Chop implements Strategy {
 
     @Override
     public void execute() {
-
+        core.sendNotification("Chopping tree");
     }
 }

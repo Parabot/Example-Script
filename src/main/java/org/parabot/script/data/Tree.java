@@ -19,6 +19,25 @@ public enum Tree {
         this.level = level;
     }
 
+    /**
+     * Finds the best tree based on your level
+     *
+     * @param yourLevel Your woodcutting level
+     * @return The best tree for your level, null if no fitting tree found
+     */
+    public static Tree getFittingForLevel(int yourLevel) {
+        Tree bestFittingTree = null;
+        for (Tree tree : Tree.values()) {
+            if (bestFittingTree == null && tree.level <= yourLevel) {
+                bestFittingTree = tree;
+            } else if (bestFittingTree != null && tree.level <= yourLevel && bestFittingTree.level < tree.level) {
+                bestFittingTree = tree;
+            }
+        }
+
+        return bestFittingTree;
+    }
+
     public String getTreeName() {
         return name;
     }
@@ -29,24 +48,5 @@ public enum Tree {
 
     public int getLevel() {
         return level;
-    }
-
-    /**
-     * Finds the best tree based on your level
-     *
-     * @param yourLevel Your woodcutting level
-     * @return The best tree for your level, null if no fitting tree found
-     */
-    public static Tree getFittingForLevel(int yourLevel){
-        Tree bestFittingTree = null;
-        for (Tree tree : Tree.values()){
-            if (bestFittingTree == null && tree.level <= yourLevel){
-                bestFittingTree = tree;
-            }else if (bestFittingTree != null && tree.level <= yourLevel && bestFittingTree.level < tree.level){
-                bestFittingTree = tree;
-            }
-        }
-
-        return bestFittingTree;
     }
 }

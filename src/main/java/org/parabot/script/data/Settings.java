@@ -14,12 +14,12 @@ public class Settings {
         return serverPassword;
     }
 
-    public String getServerUsername() {
-        return serverUsername;
-    }
-
     public void setServerPassword(String serverPassword) {
         this.serverPassword = serverPassword;
+    }
+
+    public String getServerUsername() {
+        return serverUsername;
     }
 
     public void setServerUsername(String serverUsername) {

@@ -1,5 +1,7 @@
 package org.parabot.script;
 
+import org.parabot.api.Configuration;
+import org.parabot.api.notifications.NotificationManager;
 import org.parabot.core.ui.Logger;
 import org.parabot.environment.scripts.Category;
 import org.parabot.environment.scripts.Script;
@@ -23,8 +25,8 @@ import java.util.ArrayList;
         version = 1.0)
 public class Core extends Script implements ICore {
 
-    private Settings settings;
     private final ArrayList<Strategy> strategies;
+    private Settings settings;
 
     public Core() {
         this.settings = new Settings();
@@ -51,5 +53,10 @@ public class Core extends Script implements ICore {
     @Override
     public Settings getSettings() {
         return this.settings;
+    }
+
+    @Override
+    public void sendNotification(String message) {
+        NotificationManager.getContext().sendNotification(Configuration.BOT_TITLE, "Example script", message);
     }
 }
